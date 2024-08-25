@@ -1,0 +1,17 @@
+global using Microsoft.EntityFrameworkCore;
+global using Subscription.Managing.TelegramBot.Infrastructure.Data;
+global using Subscription.Managing.TelegramBot.Application;
+global using Subscription.Managing.TelegramBot.Infrastructure;
+global using Subscription.Managing.TelegramBot.WebApi;
+global using Microsoft.AspNetCore.Mvc;
+global using MediatR;
+global using Subscription.Managing.TelegramBot.Application.Services.Commands.CreateService;
+global using Subscription.Managing.TelegramBot.Application.Services.Commands.DeleteService;
+global using Subscription.Managing.TelegramBot.Application.Services.Commands.UpdateService;
+global using Subscription.Managing.TelegramBot.Application.Services.Queries.GetAll;
+global using Subscription.Managing.TelegramBot.Application.Services.Queries.GetDetail;
+global using Subscription.Managing.TelegramBot.Application.ServiceDetails.Commands.CreateServiceDetail;
+global using Subscription.Managing.TelegramBot.Application.ServiceDetails.Commands.DeleteServiceDetail;
+global using Subscription.Managing.TelegramBot.Application.ServiceDetails.Commands.UpdateServiceDetail;
+global using Subscription.Managing.TelegramBot.Application.ServiceDetails.Queries.GetAll;
+global using Subscription.Managing.TelegramBot.Application.ServiceDetails.Queries.GetDetail;

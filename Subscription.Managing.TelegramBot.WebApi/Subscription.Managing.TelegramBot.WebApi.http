@@ -1,0 +1,6 @@
+@Subscription.Managing.TelegramBot.WebApi_HostAddress = http://localhost:5055
+
+GET {{Subscription.Managing.TelegramBot.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
