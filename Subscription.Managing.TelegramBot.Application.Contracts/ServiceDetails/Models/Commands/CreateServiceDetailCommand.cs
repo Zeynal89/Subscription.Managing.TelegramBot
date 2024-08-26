@@ -1,4 +1,4 @@
-namespace Subscription.Managing.TelegramBot.Application.ServiceDetails.Commands.CreateServiceDetail;
+namespace Subscription.Managing.TelegramBot.Application.Contracts.ServiceDetails.Models.Commands;
 
 public class CreateServiceDetailCommand : IRequest
 {

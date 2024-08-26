@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Subscription.Managing.TelegramBot.Application\Subscription.Managing.TelegramBot.Application.csproj" />
+    <ProjectReference Include="..\Subscription.Managing.TelegramBot.Application.Contracts\Subscription.Managing.TelegramBot.Application.Contracts.csproj" />
     <ProjectReference Include="..\Subscription.Managing.TelegramBot.Infrastructure\Subscription.Managing.TelegramBot.Infrastructure.csproj" />
   </ItemGroup>
 

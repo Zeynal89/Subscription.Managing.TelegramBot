@@ -1,4 +1,4 @@
-namespace Subscription.Managing.TelegramBot.Application.Services.Commands.CreateService;
+namespace Subscription.Managing.TelegramBot.Application.Contracts.Services.Models.Commands;
 
 public class CreateServiceCommand : IRequest
 {

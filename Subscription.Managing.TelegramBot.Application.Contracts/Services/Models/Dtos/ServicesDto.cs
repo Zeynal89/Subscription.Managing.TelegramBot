@@ -1,6 +1,6 @@
-namespace Subscription.Managing.TelegramBot.Application.Services.Commands.UpdateService;
+﻿namespace Subscription.Managing.TelegramBot.Application.Contracts.Services.Models.Dtos;
 
-public class UpdateServiceCommand : IRequest
+public class ServicesDto
 {
     public int Id { get; set; }
     public required string Name { get; set; }

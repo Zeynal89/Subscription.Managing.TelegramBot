@@ -1,4 +1,6 @@
-﻿namespace Subscription.Managing.TelegramBot.Infrastructure;
+﻿using Subscription.Managing.TelegramBot.Application.Contracts.Common.Interfaces;
+
+namespace Subscription.Managing.TelegramBot.Infrastructure;
 
 public static class DependencyInjection
 {

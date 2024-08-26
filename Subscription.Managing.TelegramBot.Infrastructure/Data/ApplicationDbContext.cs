@@ -1,4 +1,6 @@
-﻿namespace Subscription.Managing.TelegramBot.Infrastructure.Data;
+﻿using Subscription.Managing.TelegramBot.Application.Contracts.Common.Interfaces;
+
+namespace Subscription.Managing.TelegramBot.Infrastructure.Data;
 
 public class ApplicationDbContext : DbContext, IApplicationDbContext
 {

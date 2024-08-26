@@ -1,4 +1,4 @@
-namespace Subscription.Managing.TelegramBot.Application.ServiceDetails.Commands.UpdateServiceDetail;
+namespace Subscription.Managing.TelegramBot.Application.Contracts.ServiceDetails.Models.Commands;
 
 public class UpdateServiceDetailCommand : IRequest
 {
