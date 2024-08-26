@@ -1,4 +1,4 @@
-﻿using Subscription.Managing.TelegramBot.Application.Contracts.Common.Interfaces;
+﻿using Subscription.Managing.TelegramBot.Infrastructure.Services;
 
 namespace Subscription.Managing.TelegramBot.Infrastructure;
 
@@ -17,7 +17,12 @@ public static class DependencyInjection
 
         services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ApplicationDbContext>());
         services.AddScoped<ApplicationDbContextInitialiser>();
+
+        var token = configuration["TelegramBot:Token"];
+        services.AddSingleton<ITelegramBotService>(new TelegramBotService(token));
+
         services.AddSingleton(TimeProvider.System);
         return services;
     }
 }
+
