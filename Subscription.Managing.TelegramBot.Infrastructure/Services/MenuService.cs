@@ -1,4 +1,6 @@
-﻿namespace Subscription.Managing.TelegramBot.Infrastructure.Services
+﻿using Subscription.Managing.TelegramBot.Application.Contracts.Common.Interfaces;
+
+namespace Subscription.Managing.TelegramBot.Infrastructure.Services
 {
     public class MenuService : IMenuService
     {
@@ -9,6 +11,11 @@
         {
             this.bot = bot;
             this._scopeFactory = scopeFactory;
+        }
+
+        public async Task OnMessage(Message msg, UpdateType type)
+        {
+            await ShowMainMenu(msg.Chat);
         }
 
         public async Task ShowMainMenu(Chat chat)

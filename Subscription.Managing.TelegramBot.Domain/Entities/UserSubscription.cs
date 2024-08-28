@@ -11,6 +11,15 @@ public class UserSubscription
     public DateTime EndDate { get; set; }
     public UserSubscriptionStatus UserSubscriptionStatus { get; set; }
 
+    public UserSubscription(long userId, int serviceDetailId, DateTime endDate)
+    {
+        UserId = userId;
+        ServiceDetailId = serviceDetailId;
+        StartDate = DateTime.Now;
+        EndDate = endDate;
+        UserSubscriptionStatus = UserSubscriptionStatus.Active;
+    }
+
     public void UpdateSubscription(int serviceDetailId, DateTime endDate)
     {
         ServiceDetailId = serviceDetailId;

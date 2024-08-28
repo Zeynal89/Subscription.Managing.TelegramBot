@@ -3,26 +3,21 @@
 public class TelegramBotService : ITelegramBotService
 {
     private readonly TelegramBotClient bot;
-    private readonly IMessageHandler messageHandler;
     private readonly ICallbackHandler callbackHandler;
+    private readonly IMenuService menuService;
 
-    public TelegramBotService(TelegramBotClient bot, IMessageHandler messageHandler, ICallbackHandler callbackHandler)
+    public TelegramBotService(TelegramBotClient bot, ICallbackHandler callbackHandler, IMenuService menuService)
     {
         this.bot = bot;
-        this.messageHandler = messageHandler;
         this.callbackHandler = callbackHandler;
+        this.menuService = menuService;
 
-        bot.OnMessage += this.messageHandler.OnMessage;
+        bot.OnMessage += this.menuService.OnMessage;
         bot.OnUpdate += this.callbackHandler.OnUpdate;
     }
 
     public async Task StartAsync()
     {
         await bot.DropPendingUpdatesAsync();
-    }
-
-    public async Task SendMessageAsync(Chat chat, string message, IReplyMarkup replyMarkup)
-    {
-        await bot.SendTextMessageAsync(chat, message, replyMarkup: replyMarkup);
     }
 }

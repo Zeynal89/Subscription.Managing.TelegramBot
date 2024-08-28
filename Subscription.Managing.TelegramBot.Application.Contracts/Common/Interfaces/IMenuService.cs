@@ -2,6 +2,7 @@
 
 public interface IMenuService
 {
+    Task OnMessage(Message msg, UpdateType type);
     Task ShowMainMenu(Chat chat);
     Task ServicesCallback(CallbackQuery callbackQuery);
 }
