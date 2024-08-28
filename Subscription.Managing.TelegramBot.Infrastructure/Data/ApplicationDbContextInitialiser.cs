@@ -1,4 +1,6 @@
-﻿namespace Subscription.Managing.TelegramBot.Infrastructure.Data;
+﻿using Subscription.Managing.TelegramBot.Domain.Shared.Enums;
+
+namespace Subscription.Managing.TelegramBot.Infrastructure.Data;
 
 public static class InitialiserExtensions
 {

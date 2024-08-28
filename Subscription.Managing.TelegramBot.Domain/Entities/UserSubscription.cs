@@ -17,7 +17,7 @@ public class UserSubscription
         EndDate = endDate;
     }
 
-    public void StopSubscription()
+    public void ChangeUserSubscriptionStatus()
     {
         UserSubscriptionStatus = UserSubscriptionStatus == UserSubscriptionStatus.Active ? UserSubscriptionStatus.Stopped : UserSubscriptionStatus.Active;
     }

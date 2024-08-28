@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Subscription.Managing.TelegramBot.Application.Contracts\Subscription.Managing.TelegramBot.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Subscription.Managing.TelegramBot.Domain\Subscription.Managing.TelegramBot.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

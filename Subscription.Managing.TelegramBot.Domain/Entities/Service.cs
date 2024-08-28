@@ -1,6 +1,4 @@
-﻿
-
-namespace Subscription.Managing.TelegramBot.Domain.Entities;
+﻿namespace Subscription.Managing.TelegramBot.Domain.Entities;
 
 public class Service
 {

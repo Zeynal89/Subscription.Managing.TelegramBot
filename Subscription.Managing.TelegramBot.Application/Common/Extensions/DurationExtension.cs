@@ -1,3 +1,5 @@
+using Subscription.Managing.TelegramBot.Domain.Shared.Enums;
+
 namespace Subscription.Managing.TelegramBot.Application.Common.Extensions;
 
 public static class DurationExtension

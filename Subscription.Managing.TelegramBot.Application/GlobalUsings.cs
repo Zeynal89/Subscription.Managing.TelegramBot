@@ -16,6 +16,7 @@ global using Subscription.Managing.TelegramBot.Application.Contracts.ServiceDeta
 global using Subscription.Managing.TelegramBot.Application.Contracts.Services.Models.Commands;
 global using Subscription.Managing.TelegramBot.Application.Contracts.Services.Models.Dtos;
 global using Subscription.Managing.TelegramBot.Application.Contracts.Services.Models.Queries;
+global using Subscription.Managing.TelegramBot.Application.Contracts.Users.Dtos;
+global using Subscription.Managing.TelegramBot.Application.Contracts.UserSubscriptions.Dtos;
 global using Subscription.Managing.TelegramBot.Domain.Entities;
-global using Subscription.Managing.TelegramBot.Domain.Enums;
 global using System.Reflection;

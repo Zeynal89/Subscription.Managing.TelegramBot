@@ -2,5 +2,6 @@
 
 public interface ITelegramBotService
 {
-    Task SendMessageAsync(long chatId, string message);
+    Task StartAsync();
+    Task SendMessageAsync(Chat chat, string message, IReplyMarkup replyMarkup);
 }

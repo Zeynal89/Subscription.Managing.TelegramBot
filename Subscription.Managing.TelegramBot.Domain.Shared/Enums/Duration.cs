@@ -1,4 +1,6 @@
-﻿namespace Subscription.Managing.TelegramBot.Application.Contracts.Common.Enums;
+using System.ComponentModel;
+
+namespace Subscription.Managing.TelegramBot.Domain.Shared.Enums;
 
 public enum Duration
 {

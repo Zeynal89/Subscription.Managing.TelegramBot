@@ -4,16 +4,17 @@
 [ApiController]
 public class TelegramBotController : ControllerBase
 {
-    private readonly ITelegramBotService _telegramBotService;
+    private readonly ITelegramBotService telegramBotService;
 
     public TelegramBotController(ITelegramBotService telegramBotService)
     {
-        _telegramBotService = telegramBotService;
+        this.telegramBotService = telegramBotService;
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get()
+    public async Task<IActionResult> StartAsync()
     {
+        await telegramBotService.StartAsync();
         return Ok();
     }
 }

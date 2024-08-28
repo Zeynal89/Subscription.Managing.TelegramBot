@@ -1,4 +1,4 @@
-namespace Subscription.Managing.TelegramBot.Domain.Enums;
+namespace Subscription.Managing.TelegramBot.Domain.Shared.Enums;
 
 public enum UserSubscriptionStatus
 {

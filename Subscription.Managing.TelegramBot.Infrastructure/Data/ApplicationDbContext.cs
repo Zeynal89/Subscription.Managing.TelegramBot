@@ -7,7 +7,7 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
     public DbSet<Service> Services { get; set; }
-    public DbSet<User> Users { get; set; }
+    public DbSet<Domain.Entities.User> Users { get; set; }
     public DbSet<ServiceDetail> ServiceDetails { get; set; }
     public DbSet<UserSubscription> UserSubscriptions { get; set; }
 
@@ -30,7 +30,7 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
             .WithMany(sd => sd.ServiceDetails)
             .HasForeignKey(fk => fk.ServiceId);
 
-        builder.Entity<User>()
+        builder.Entity<Domain.Entities.User>()
             .HasKey(u => u.Id);
 
         builder.Entity<UserSubscription>()
