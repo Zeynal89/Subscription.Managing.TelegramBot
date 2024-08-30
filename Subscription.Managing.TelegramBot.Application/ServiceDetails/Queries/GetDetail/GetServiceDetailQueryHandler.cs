@@ -14,7 +14,6 @@ public class GetServiceDetailQueryHandler : IRequestHandler<GetServiceDetailQuer
     public async Task<ServiceDetailDto> Handle(GetServiceDetailQuery request, CancellationToken cancellationToken)
     {
         var serviceDetail = await dbContext.Set<ServiceDetail>()
-                                    .Include(p => p.Service)
                                     .FirstOrDefaultAsync(p => p.Id == request.id);
         return mapper.Map<ServiceDetailDto>(serviceDetail);
     }

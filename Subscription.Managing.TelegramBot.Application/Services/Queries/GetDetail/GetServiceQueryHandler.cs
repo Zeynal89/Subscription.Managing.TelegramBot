@@ -1,5 +1,3 @@
-using System;
-
 namespace Subscription.Managing.TelegramBot.Application.Services.Queries.GetDetail;
 
 public class GetServiceQueryHandler : IRequestHandler<GetServiceQuery, ServiceDto>
@@ -15,7 +13,7 @@ public class GetServiceQueryHandler : IRequestHandler<GetServiceQuery, ServiceDt
 
     public async Task<ServiceDto> Handle(GetServiceQuery request, CancellationToken cancellationToken)
     {
-        var service = await dbContext.Set<Service>().FirstOrDefaultAsync(p => p.Id == request.id);
+        var service = await dbContext.Set<Service>().Include(p => p.ServiceDetails).FirstOrDefaultAsync(p => p.Id == request.id);
         return mapper.Map<ServiceDto>(service);
     }
 }

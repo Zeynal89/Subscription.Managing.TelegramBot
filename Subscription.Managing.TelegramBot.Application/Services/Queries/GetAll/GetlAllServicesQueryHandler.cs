@@ -1,6 +1,6 @@
 namespace Subscription.Managing.TelegramBot.Application.Services.Queries.GetAll;
 
-public class GetlAllServicesQueryHandler : IRequestHandler<GetlAllServicesQuery, List<ServiceDto>>
+public class GetlAllServicesQueryHandler : IRequestHandler<GetlAllServicesQuery, List<ServicesDto>>
 {
     private readonly IApplicationDbContext dbContext;
     private readonly IMapper mapper;
@@ -11,8 +11,8 @@ public class GetlAllServicesQueryHandler : IRequestHandler<GetlAllServicesQuery,
         this.mapper = mapper;
     }
 
-    public async Task<List<ServiceDto>> Handle(GetlAllServicesQuery request, CancellationToken cancellationToken)
+    public async Task<List<ServicesDto>> Handle(GetlAllServicesQuery request, CancellationToken cancellationToken)
     {
-        return await Task.FromResult(dbContext.Set<Service>().Include(p => p.ServiceDetails).ProjectTo<ServiceDto>(mapper.ConfigurationProvider).ToList());
+        return await Task.FromResult(dbContext.Set<Service>().ProjectTo<ServicesDto>(mapper.ConfigurationProvider).ToList());
     }
 }

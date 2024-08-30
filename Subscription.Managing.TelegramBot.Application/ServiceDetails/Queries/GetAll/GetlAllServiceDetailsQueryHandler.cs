@@ -13,6 +13,6 @@ public class GetlAllServiceDetailsQueryHandler : IRequestHandler<GetlAllServiceD
 
     public async Task<List<ServiceDetailDto>> Handle(GetlAllServiceDetailsQuery request, CancellationToken cancellationToken)
     {
-        return await Task.FromResult(dbContext.Set<ServiceDetail>().Include(p => p.Service).ProjectTo<ServiceDetailDto>(mapper.ConfigurationProvider).ToList());
+        return await Task.FromResult(dbContext.Set<ServiceDetail>().ProjectTo<ServiceDetailDto>(mapper.ConfigurationProvider).ToList());
     }
 }

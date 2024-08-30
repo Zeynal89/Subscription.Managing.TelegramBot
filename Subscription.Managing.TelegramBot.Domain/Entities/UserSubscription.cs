@@ -11,14 +11,37 @@ public class UserSubscription
     public DateTime EndDate { get; set; }
     public UserSubscriptionStatus UserSubscriptionStatus { get; set; }
 
+    public UserSubscription(long userId, int serviceDetailId, DateTime endDate)
+    {
+        UserId = userId;
+        ServiceDetailId = serviceDetailId;
+        StartDate = DateTime.Now;
+        UserSubscriptionStatus = UserSubscriptionStatus.Active;
+        SetEndDate(endDate);
+    }
+
     public void UpdateSubscription(int serviceDetailId, DateTime endDate)
     {
         ServiceDetailId = serviceDetailId;
-        EndDate = endDate;
+        SetEndDate(endDate);
     }
 
-    public void StopSubscription()
+    public void StopSubscriptionStatus()
     {
-        UserSubscriptionStatus = UserSubscriptionStatus == UserSubscriptionStatus.Active ? UserSubscriptionStatus.Stopped : UserSubscriptionStatus.Active;
+        UserSubscriptionStatus = UserSubscriptionStatus.Stopped;
+    }
+
+    public void ResumeSubscriptionStatus()
+    {
+        UserSubscriptionStatus = UserSubscriptionStatus.Active;
+    }
+
+    public void SetEndDate(DateTime endDate)
+    {
+        if (endDate <= StartDate)
+        {
+            throw new ArgumentException("Дата окончания должна быть позже даты начала.", nameof(endDate));
+        }
+        EndDate = endDate;
     }
 }

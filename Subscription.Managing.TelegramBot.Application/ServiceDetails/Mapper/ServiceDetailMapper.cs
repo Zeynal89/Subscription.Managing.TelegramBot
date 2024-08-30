@@ -7,5 +7,7 @@ public class ServiceDetailMapper : Profile
         CreateMap<CreateServiceDetailCommand, ServiceDetail>();
         CreateMap<UpdateServiceDetailCommand, ServiceDetail>();
         CreateMap<ServiceDetail, ServiceDetailDto>();
+        CreateMap<ServiceDetail, UserSubscriptionServiceDetailDto>()
+            .ForMember(dst => dst.ServiceDto, opt => opt.MapFrom(src => src.Service));
     }
 }

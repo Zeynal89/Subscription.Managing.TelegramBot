@@ -7,5 +7,6 @@ public class ServiceMapper : Profile
         CreateMap<CreateServiceCommand, Service>();
         CreateMap<UpdateServiceCommand, Service>();
         CreateMap<Service, ServiceDto>();
+        CreateMap<Service, ServicesDto>();
     }
 }

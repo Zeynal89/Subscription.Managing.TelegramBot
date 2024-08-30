@@ -3,17 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscription.Managing.TelegramBot.WebApi", "Subscription.Managing.TelegramBot.WebApi\Subscription.Managing.TelegramBot.WebApi.csproj", "{7FC087F8-9825-4C96-812D-96D035431740}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscription.Managing.TelegramBot.WebApi", "Subscription.Managing.TelegramBot.WebApi\Subscription.Managing.TelegramBot.WebApi.csproj", "{7FC087F8-9825-4C96-812D-96D035431740}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0E66FB82-B0F5-4ADA-90CE-B23C13B8A971}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{118167FE-F02C-445E-A546-814FA0785AB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscription.Managing.TelegramBot.Domain", "Subscription.Managing.TelegramBot.Domain\Subscription.Managing.TelegramBot.Domain.csproj", "{1CBF98F6-B443-425D-8297-860D08E92104}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscription.Managing.TelegramBot.Domain", "Subscription.Managing.TelegramBot.Domain\Subscription.Managing.TelegramBot.Domain.csproj", "{1CBF98F6-B443-425D-8297-860D08E92104}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscription.Managing.TelegramBot.Infrastructure", "Subscription.Managing.TelegramBot.Infrastructure\Subscription.Managing.TelegramBot.Infrastructure.csproj", "{68F0C678-3D04-4839-BD79-DC720A8213C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscription.Managing.TelegramBot.Infrastructure", "Subscription.Managing.TelegramBot.Infrastructure\Subscription.Managing.TelegramBot.Infrastructure.csproj", "{68F0C678-3D04-4839-BD79-DC720A8213C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscription.Managing.TelegramBot.Application", "Subscription.Managing.TelegramBot.Application\Subscription.Managing.TelegramBot.Application.csproj", "{20ACDFAF-B10A-40EF-80DA-30A56B23DFC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscription.Managing.TelegramBot.Application", "Subscription.Managing.TelegramBot.Application\Subscription.Managing.TelegramBot.Application.csproj", "{20ACDFAF-B10A-40EF-80DA-30A56B23DFC7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subscription.Managing.TelegramBot.Application.Contracts", "Subscription.Managing.TelegramBot.Application.Contracts\Subscription.Managing.TelegramBot.Application.Contracts.csproj", "{D3DBD5AD-1CF9-4956-82C6-26022A9B5AF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscription.Managing.TelegramBot.Domain.Tests", "Subscription.Managing.TelegramBot.Domain.Tests\Subscription.Managing.TelegramBot.Domain.Tests.csproj", "{6D03A591-FBDE-4236-B3C7-D0A7BA16A58A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscription.Managing.TelegramBot.Domain.Shared", "Subscription.Managing.TelegramBot.Domain.Shared\Subscription.Managing.TelegramBot.Domain.Shared.csproj", "{9B2D2EC7-670B-4923-BF59-C824F64B6B40}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{CAB06904-CB84-4596-830D-9E96D05A170D}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +49,18 @@ Global
 		{20ACDFAF-B10A-40EF-80DA-30A56B23DFC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20ACDFAF-B10A-40EF-80DA-30A56B23DFC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20ACDFAF-B10A-40EF-80DA-30A56B23DFC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3DBD5AD-1CF9-4956-82C6-26022A9B5AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3DBD5AD-1CF9-4956-82C6-26022A9B5AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3DBD5AD-1CF9-4956-82C6-26022A9B5AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3DBD5AD-1CF9-4956-82C6-26022A9B5AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D03A591-FBDE-4236-B3C7-D0A7BA16A58A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D03A591-FBDE-4236-B3C7-D0A7BA16A58A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D03A591-FBDE-4236-B3C7-D0A7BA16A58A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D03A591-FBDE-4236-B3C7-D0A7BA16A58A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B2D2EC7-670B-4923-BF59-C824F64B6B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B2D2EC7-670B-4923-BF59-C824F64B6B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B2D2EC7-670B-4923-BF59-C824F64B6B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B2D2EC7-670B-4923-BF59-C824F64B6B40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +70,9 @@ Global
 		{1CBF98F6-B443-425D-8297-860D08E92104} = {0E66FB82-B0F5-4ADA-90CE-B23C13B8A971}
 		{68F0C678-3D04-4839-BD79-DC720A8213C6} = {0E66FB82-B0F5-4ADA-90CE-B23C13B8A971}
 		{20ACDFAF-B10A-40EF-80DA-30A56B23DFC7} = {0E66FB82-B0F5-4ADA-90CE-B23C13B8A971}
+		{D3DBD5AD-1CF9-4956-82C6-26022A9B5AF3} = {0E66FB82-B0F5-4ADA-90CE-B23C13B8A971}
+		{6D03A591-FBDE-4236-B3C7-D0A7BA16A58A} = {118167FE-F02C-445E-A546-814FA0785AB3}
+		{9B2D2EC7-670B-4923-BF59-C824F64B6B40} = {0E66FB82-B0F5-4ADA-90CE-B23C13B8A971}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3A8AFBB8-5266-4AEC-9502-71F868D46BED}

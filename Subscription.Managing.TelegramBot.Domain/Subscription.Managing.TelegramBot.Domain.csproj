@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Subscription.Managing.TelegramBot.Domain.Shared\Subscription.Managing.TelegramBot.Domain.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

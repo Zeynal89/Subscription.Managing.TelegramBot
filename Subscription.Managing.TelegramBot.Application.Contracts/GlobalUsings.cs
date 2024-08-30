@@ -1,0 +1,11 @@
+﻿global using FluentValidation;
+global using MediatR;
+global using Microsoft.EntityFrameworkCore;
+global using Subscription.Managing.TelegramBot.Application.Contracts.ServiceDetails.Models.Dtos;
+global using Subscription.Managing.TelegramBot.Application.Contracts.Services.Models.Commands;
+global using Subscription.Managing.TelegramBot.Application.Contracts.Services.Models.Dtos;
+global using Subscription.Managing.TelegramBot.Application.Contracts.Users.Dtos;
+global using Subscription.Managing.TelegramBot.Domain.Shared.Enums;
+global using Telegram.Bot.Types;
+global using Telegram.Bot.Types.Enums;
+global using Telegram.Bot.Types.ReplyMarkups;

@@ -17,8 +17,7 @@ public class DeleteServiceDetailCommandHandler : IRequestHandler<DeleteServiceDe
             throw new NotFoundException();
         }
 
-        dbContext.Set<ServiceDetail
-        >().Remove(serviceDetail);
+        dbContext.Set<ServiceDetail>().Remove(serviceDetail);
         await dbContext.SaveChangesAsync();
     }
 }
