@@ -9,8 +9,12 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+
+COPY NuGet.config ./
+
 COPY ["Subscription.Managing.TelegramBot.WebApi/Subscription.Managing.TelegramBot.WebApi.csproj", "Subscription.Managing.TelegramBot.WebApi/"]
 COPY ["Subscription.Managing.TelegramBot.Application.Contracts/Subscription.Managing.TelegramBot.Application.Contracts.csproj", "Subscription.Managing.TelegramBot.Application.Contracts/"]
+COPY ["Subscription.Managing.TelegramBot.Domain.Shared/Subscription.Managing.TelegramBot.Domain.Shared.csproj", "Subscription.Managing.TelegramBot.Domain.Shared/"]
 COPY ["Subscription.Managing.TelegramBot.Infrastructure/Subscription.Managing.TelegramBot.Infrastructure.csproj", "Subscription.Managing.TelegramBot.Infrastructure/"]
 COPY ["Subscription.Managing.TelegramBot.Application/Subscription.Managing.TelegramBot.Application.csproj", "Subscription.Managing.TelegramBot.Application/"]
 COPY ["Subscription.Managing.TelegramBot.Domain/Subscription.Managing.TelegramBot.Domain.csproj", "Subscription.Managing.TelegramBot.Domain/"]

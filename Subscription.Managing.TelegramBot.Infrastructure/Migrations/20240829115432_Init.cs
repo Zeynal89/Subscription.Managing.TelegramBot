@@ -20,7 +20,6 @@ namespace Subscription.Managing.TelegramBot.Infrastructure.Migrations
                     Name = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
                     Description = table.Column<string>(type: "TEXT", maxLength: 500, nullable: false),
                     Status = table.Column<int>(type: "INTEGER", nullable: false),
-                    EndDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     BotLink = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -34,8 +33,8 @@ namespace Subscription.Managing.TelegramBot.Infrastructure.Migrations
                 {
                     Id = table.Column<long>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Firstname = table.Column<string>(type: "TEXT", nullable: true),
-                    Lastname = table.Column<string>(type: "TEXT", nullable: true),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: true),
+                    LastName = table.Column<string>(type: "TEXT", nullable: true),
                     Username = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>

@@ -28,7 +28,7 @@ public class User_Tests
         long id = 1;
         string firstName = "John";
         string lastName = "Doe";
-        string username = "johndoe";
+        string username = "@johndoe";
 
         // Act
         var user = new User(id, firstName, lastName, username);

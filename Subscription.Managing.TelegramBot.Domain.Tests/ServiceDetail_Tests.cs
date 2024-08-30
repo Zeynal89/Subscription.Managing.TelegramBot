@@ -14,7 +14,6 @@ public class ServiceDetail_Tests
             Name = name,
             Description = description,
             Status = ServiceStatus.Active,
-            EndDate = DateTime.Now.AddMonths(1),
             BotLink = "https://t.me/testbot"
         }; 
 
@@ -42,7 +41,6 @@ public class ServiceDetail_Tests
             Name = name,
             Description = description,
             Status = ServiceStatus.Active,
-            EndDate = DateTime.Now.AddMonths(1),
             BotLink = "https://t.me/testbot"
         }; 
 

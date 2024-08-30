@@ -66,7 +66,6 @@ public class ApplicationDbContextInitialiser
                      Name = "c# tutorial",
                      Description = "Teaching c# for beginners",
                      Status = ServiceStatus.Active,
-                     EndDate = DateTime.Now.AddYears(2),
                      BotLink = "https://t.me/ExampleBot1"
                  },
             new Service
@@ -75,7 +74,6 @@ public class ApplicationDbContextInitialiser
                 Name = "c# advanced",
                 Description = "Teaching c# for developers",
                 Status = ServiceStatus.Active,
-                EndDate = DateTime.Now.AddYears(2),
                 BotLink = "https://t.me/ExampleBot2"
             },
             new Service
@@ -84,7 +82,6 @@ public class ApplicationDbContextInitialiser
                 Name = "c# from zero to hero",
                 Description = "Teaching c# for beginners and masters",
                 Status = ServiceStatus.Active,
-                EndDate = DateTime.Now.AddYears(2),
                 BotLink = "https://t.me/ExampleBot3"
             });
             await _context.SaveChangesAsync();

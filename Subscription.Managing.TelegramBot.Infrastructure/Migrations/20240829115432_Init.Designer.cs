@@ -11,7 +11,7 @@ using Subscription.Managing.TelegramBot.Infrastructure.Data;
 namespace Subscription.Managing.TelegramBot.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240825122359_Init")]
+    [Migration("20240829115432_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -32,9 +32,6 @@ namespace Subscription.Managing.TelegramBot.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("EndDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -81,10 +78,10 @@ namespace Subscription.Managing.TelegramBot.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Firstname")
+                    b.Property<string>("FirstName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Lastname")
+                    b.Property<string>("LastName")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Username")

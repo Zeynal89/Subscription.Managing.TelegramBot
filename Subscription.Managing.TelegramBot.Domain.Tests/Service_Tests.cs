@@ -15,7 +15,6 @@ public class Service_Tests
             Name = name,
             Description = description,
             Status = ServiceStatus.Active, 
-            EndDate = DateTime.Now.AddMonths(1),
             BotLink = "https://t.me/testbot"
         };
 
@@ -23,7 +22,6 @@ public class Service_Tests
         Assert.Equal(name, service.Name);
         Assert.Equal(description, service.Description);
         Assert.Equal(ServiceStatus.Active, service.Status);
-        Assert.Equal(DateTime.Now.AddMonths(1).Date, service.EndDate.Date);
         Assert.Equal("https://t.me/testbot", service.BotLink);
     }
 
@@ -39,7 +37,6 @@ public class Service_Tests
             Name = name,
             Description = description,
             Status = ServiceStatus.Active, 
-            EndDate = DateTime.Now.AddMonths(1),
             BotLink = "https://t.me/testbot"
         };
 

@@ -35,12 +35,15 @@ public class UserSubscription_Tests
         subscription.UpdateSubscription(newServiceDetailId, newEndDate);
 
         // Assert
+        Assert.NotEqual(serviceDetailId, subscription.ServiceDetailId);
+        Assert.NotEqual(endDate, subscription.EndDate);
+
         Assert.Equal(newServiceDetailId, subscription.ServiceDetailId);
         Assert.Equal(newEndDate, subscription.EndDate);
     }
 
     [Fact]
-    public void ChangeUserSubscriptionStatus_ShouldToggleStatus()
+    public void StopSubscriptionStatus_ShouldStopStatus()
     {
         // Arrange
         long userId = 1;
@@ -49,13 +52,24 @@ public class UserSubscription_Tests
         var subscription = new UserSubscription(userId, serviceDetailId, endDate);
 
         // Act
-        subscription.ChangeUserSubscriptionStatus();
+        subscription.StopSubscriptionStatus();
 
         // Assert
         Assert.Equal(UserSubscriptionStatus.Stopped, subscription.UserSubscriptionStatus);
+    }
 
-        // Act again
-        subscription.ChangeUserSubscriptionStatus();
+    [Fact]
+    public void ResumeSubscriptionStatus_ShouldActivateStatus()
+    {
+        // Arrange
+        long userId = 1;
+        int serviceDetailId = 1;
+        DateTime endDate = DateTime.Now.AddMonths(1);
+        var subscription = new UserSubscription(userId, serviceDetailId, endDate);
+        subscription.StopSubscriptionStatus();
+
+        // Act
+        subscription.ResumeSubscriptionStatus();
 
         // Assert
         Assert.Equal(UserSubscriptionStatus.Active, subscription.UserSubscriptionStatus);

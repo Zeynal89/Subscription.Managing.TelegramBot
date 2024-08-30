@@ -35,15 +35,16 @@ public class SubscriptionService : ISubscriptionService
 
     private async Task<string> ProcessSubscriptionAction(string action, CallbackQuery callbackQuery, int serviceDetailId, int oldServiceDetailId, ServiceDetail serviceDetail, ApplicationDbContext dbContext)
     {
+        var userId = callbackQuery.From.Id;
         switch (action)
         {
             case "resume":
-                await ResumeSubscription(serviceDetailId, dbContext);
+                await ResumeSubscription(userId, serviceDetailId, dbContext);
                 await ShowServiceDetails(callbackQuery, serviceDetail.ServiceId, dbContext);
                 return "Подписка возобновлена.";
 
             case "stop":
-                await StopSubscription(serviceDetailId, dbContext);
+                await StopSubscription(userId, serviceDetailId, dbContext);
                 return "Подписка остановлена.";
 
             case "change":
@@ -51,7 +52,7 @@ public class SubscriptionService : ISubscriptionService
                 return "Изменение подписки.";
 
             case "isChanged":
-                await ChangeSubscription(serviceDetailId, oldServiceDetailId, dbContext);
+                await ChangeSubscription(userId, serviceDetailId, oldServiceDetailId, dbContext);
                 return "Подписка изменена.";
 
             default:
@@ -59,28 +60,28 @@ public class SubscriptionService : ISubscriptionService
         }
     }
 
-    private async Task ResumeSubscription(int serviceDetailId, ApplicationDbContext dbContext)
+    private async Task ResumeSubscription(long userId, int serviceDetailId, ApplicationDbContext dbContext)
     {
         var userSubscription = await dbContext.Set<UserSubscription>()
-            .FirstOrDefaultAsync(y => y.ServiceDetailId == serviceDetailId && y.EndDate >= DateTime.Now);
-        userSubscription?.ChangeUserSubscriptionStatus();
+            .FirstOrDefaultAsync(y => y.UserId == userId && y.ServiceDetailId == serviceDetailId && y.EndDate >= DateTime.Now);
+        userSubscription?.ResumeSubscriptionStatus();
         await dbContext.SaveChangesAsync();
     }
 
-    private async Task StopSubscription(int serviceDetailId, ApplicationDbContext dbContext)
+    private async Task StopSubscription(long userId, int serviceDetailId, ApplicationDbContext dbContext)
     {
         var userSubscription = await dbContext.Set<UserSubscription>()
-            .FirstOrDefaultAsync(y => y.ServiceDetailId == serviceDetailId && y.EndDate >= DateTime.Now);
-        userSubscription?.ChangeUserSubscriptionStatus();
+            .FirstOrDefaultAsync(y => y.UserId == userId && y.ServiceDetailId == serviceDetailId && y.EndDate >= DateTime.Now);
+        userSubscription?.StopSubscriptionStatus();
         await dbContext.SaveChangesAsync();
     }
 
-    private async Task ChangeSubscription(int serviceDetailId, int oldServiceDetailId, ApplicationDbContext dbContext)
+    private async Task ChangeSubscription(long userId, int serviceDetailId, int oldServiceDetailId, ApplicationDbContext dbContext)
     {
         var userSubscription = await dbContext.Set<UserSubscription>()
             .Include(p => p.ServiceDetail)
             .ThenInclude(p => p.Service)
-            .FirstOrDefaultAsync(y => y.ServiceDetailId == oldServiceDetailId && y.EndDate >= DateTime.Now);
+            .FirstOrDefaultAsync(y => y.UserId == userId && y.ServiceDetailId == oldServiceDetailId && y.EndDate >= DateTime.Now);
 
         var newServiceDetail = await dbContext.Set<ServiceDetail>().FirstOrDefaultAsync(p => p.Id == serviceDetailId);
         userSubscription.UpdateSubscription(newServiceDetail.Id, newServiceDetail.Duration.GetEndDate());

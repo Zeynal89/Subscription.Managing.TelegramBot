@@ -21,6 +21,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscription.Managing.Teleg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subscription.Managing.TelegramBot.Domain.Shared", "Subscription.Managing.TelegramBot.Domain.Shared\Subscription.Managing.TelegramBot.Domain.Shared.csproj", "{9B2D2EC7-670B-4923-BF59-C824F64B6B40}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решения", "Элементы решения", "{CAB06904-CB84-4596-830D-9E96D05A170D}"
+	ProjectSection(SolutionItems) = preProject
+		.env = .env
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

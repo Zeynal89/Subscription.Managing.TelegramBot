@@ -1,4 +1,5 @@
-﻿namespace Subscription.Managing.TelegramBot.Infrastructure.Services;
+﻿
+namespace Subscription.Managing.TelegramBot.Infrastructure.Services;
 
 public class CallbackHandler : ICallbackHandler
 {
@@ -30,7 +31,7 @@ public class CallbackHandler : ICallbackHandler
 
         if (callbackQuery.Data == "Личный кабинет")
         {
-            //await ShowPersonalAccountMenu(callbackQuery);
+            await menuService.ShowPersonalAccountMenu(callbackQuery);
         }
         else if (callbackQuery.Data == "Назад")
         {
@@ -49,4 +50,6 @@ public class CallbackHandler : ICallbackHandler
             await menuService.ServicesCallback(callbackQuery);
         }
     }
+
+    
 }

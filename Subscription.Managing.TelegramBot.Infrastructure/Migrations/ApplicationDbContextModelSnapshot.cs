@@ -31,9 +31,6 @@ namespace Subscription.Managing.TelegramBot.Infrastructure.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -78,10 +75,10 @@ namespace Subscription.Managing.TelegramBot.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Firstname")
+                    b.Property<string>("FirstName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Lastname")
+                    b.Property<string>("LastName")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Username")

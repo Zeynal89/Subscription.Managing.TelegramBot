@@ -6,6 +6,5 @@ public class ServicesDto
     public required string Name { get; set; }
     public required string Description { get; set; }
     public ServiceStatus Status { get; set; }
-    public DateTime EndDate { get; set; }
     public string BotLink { get; set; }
 }

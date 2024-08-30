@@ -29,7 +29,7 @@ public class ServiceHandler : IServiceHandler
             var userSubscription = await dbContext.Set<UserSubscription>()
                 .Include(p => p.ServiceDetail)
                 .ThenInclude(p => p.Service)
-                .FirstOrDefaultAsync(p => p.ServiceDetailId == serviceDetail.Id && p.EndDate >= DateTime.Now);
+                .FirstOrDefaultAsync(p => p.UserId == user.Id && p.ServiceDetailId == serviceDetail.Id && p.EndDate >= DateTime.Now);
 
             var userSubscriptionDto = mapper.Map<UserSubscriptionDto>(userSubscription);
             if (userSubscriptionDto != null)
@@ -47,31 +47,61 @@ public class ServiceHandler : IServiceHandler
         }
     }
 
-    private async Task ProcessServiceAction(CallbackQuery callbackQuery, int serviceId, Domain.Entities.User user, ApplicationDbContext dbContext)
+    private async Task ProcessServiceAction(CallbackQuery callbackQuery, int serviceDetailId, Domain.Entities.User user, ApplicationDbContext dbContext)
     {
         var userSubscription = await dbContext.Set<UserSubscription>()
             .Include(p => p.ServiceDetail)
-            .ThenInclude(p => p.Service)
-            .FirstOrDefaultAsync(p => p.ServiceDetailId == serviceId && p.EndDate >= DateTime.Now);
+            .Include(p => p.ServiceDetail.Service)
+            .FirstOrDefaultAsync(p => p.UserId == callbackQuery.From.Id && p.ServiceDetailId == serviceDetailId && p.EndDate >= DateTime.Now);
 
         if (userSubscription == null)
         {
-            userSubscription = await CreateNewSubscription(serviceId, user, dbContext);
-            await bot.AnswerCallbackQueryAsync(callbackQuery.Id, "Ваш платеж прошел успешно.");
+            try
+            {
+                userSubscription = await CreateNewSubscription(serviceDetailId, user, dbContext);
+                await bot.AnswerCallbackQueryAsync(callbackQuery.Id, "Ваш платеж прошел успешно.");
+            }
+            catch (Exception ex)
+            {
+                await bot.AnswerCallbackQueryAsync(callbackQuery.Id, ex.Message);
+                throw new InvalidOperationException(ex.Message);
+            }
         }
 
         var userSubscriptionDto = mapper.Map<UserSubscriptionDto>(userSubscription);
         await ShowServiceSubscriptionManagement(callbackQuery, userSubscriptionDto);
     }
 
-    private async Task<UserSubscription> CreateNewSubscription(int serviceId, Domain.Entities.User user, ApplicationDbContext dbContext)
+    private async Task<UserSubscription> CreateNewSubscription(int serviceDetailId, Domain.Entities.User user, ApplicationDbContext dbContext)
     {
-        var serviceDetail = await dbContext.Set<ServiceDetail>().FirstOrDefaultAsync(p => p.Id == serviceId);
+        var serviceDetail = await dbContext.Set<ServiceDetail>().FirstOrDefaultAsync(p => p.Id == serviceDetailId);
+
+        var serviceServiceDetailsId = await dbContext.Set<Service>()
+                                                    .Include(p => p.ServiceDetails)
+                                                    .Where(p => p.Id == serviceDetail.ServiceId)
+                                                    .SelectMany(p => p.ServiceDetails.Select(x => x.Id)).ToListAsync();
+
+
+        var isSubscribedToRelatedServiceServiceDetails = await dbContext.Set<UserSubscription>()
+                                                         .AnyAsync(p => serviceServiceDetailsId.Contains(p.ServiceDetailId));
+
+        if (isSubscribedToRelatedServiceServiceDetails)
+        {
+            throw new InvalidOperationException("Вы уже подписаны на другие детали услуги, связанные с этим сервисом.");
+        }
+
+
         var userSubscription = new UserSubscription(user.Id, serviceDetail.Id, serviceDetail.Duration.GetEndDate());
-        
+
         await dbContext.Set<UserSubscription>().AddAsync(userSubscription);
         await dbContext.SaveChangesAsync();
-        return userSubscription;
+
+        var createdUserSubscription = await dbContext.Set<UserSubscription>()
+                                                .Include(p => p.ServiceDetail)
+                                                .Include(p => p.ServiceDetail.Service)
+                                                .FirstOrDefaultAsync(p => p.Id == userSubscription.Id);
+
+        return createdUserSubscription;
     }
 
     private async Task ShowServiceDetails(CallbackQuery callbackQuery, int serviceId, ApplicationDbContext dbContext, bool isChanged = false, int oldServiceDetailId = default)
